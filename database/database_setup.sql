@@ -92,3 +92,29 @@ CREATE TABLE Transaction_Parties (
         CHECK (role IN ('Sender', 'Receiver', 'Agent'))
 
 );
+
+
+CREATE TABLE System_Logs (
+
+    log_id INT PRIMARY KEY AUTO_INCREMENT
+        COMMENT 'Unique identifier for each log entry',
+
+    log_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        COMMENT 'Timestamp when the log entry was created',
+
+    log_level VARCHAR(10) NOT NULL
+        COMMENT 'Severity level: INFO, WARNING or ERROR',
+
+    etl_stage VARCHAR(20) NOT NULL
+        COMMENT 'Pipeline stage that generated the log: Extract, Transform, Load or Export',
+
+    message TEXT NOT NULL
+        COMMENT 'Human readable description of what happened',
+
+    CONSTRAINT chck_log_level
+        CHECK (log_level IN ('INFO', 'WARNING', 'ERROR')),
+
+    CONSTRAINT chck_etl_stage
+        CHECK (etl_stage IN ('Extract', 'Transform', 'Load', 'Export'))
+
+);
