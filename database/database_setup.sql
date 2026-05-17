@@ -64,3 +64,31 @@ CREATE TABLE Transactions (
        CHECK(status IN ('Success','Failed'))
 
 );
+
+
+CREATE TABLE Transaction_Parties (
+
+    party_id INT PRIMARY KEY AUTO_INCREMENT
+        COMMENT 'Unique identifier for each party record',
+
+    transaction_id INT NOT NULL
+        COMMENT 'Foreign key linking to the transaction',
+
+    user_id INT NOT NULL
+        COMMENT 'Foreign key linking to the user involved',
+
+    role VARCHAR(20) NOT NULL
+        COMMENT 'Role of the user in the transaction: Sender, Receiver or Agent',
+
+    CONSTRAINT fk_party_transaction
+        FOREIGN KEY (transaction_id)
+        REFERENCES Transactions(transaction_id),
+
+    CONSTRAINT fk_party_user
+        FOREIGN KEY (user_id)
+        REFERENCES Users(user_id),
+
+    CONSTRAINT chck_role
+        CHECK (role IN ('Sender', 'Receiver', 'Agent'))
+
+);
