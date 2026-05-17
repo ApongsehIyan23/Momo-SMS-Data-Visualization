@@ -203,3 +203,59 @@ INSERT INTO Transaction_Categories (category_name, description) VALUES
     'Reversal',
     'A previously completed transaction that has been reversed and money returned.'
 );
+
+INSERT INTO Transactions (original_transaction_id,category_id,amount,fee,balance_after,transaction_date,status,raw_sms) VALUES
+(
+   '76662021700',
+    4,
+    2000.00,
+    0.00,
+    2000.00,
+    '2024-05-10 16:30:51',
+    'Success',
+    'You have received 2000 RWF from Jane Smith on your mobile money account'
+),
+
+(
+    '73214484437',
+    1,
+    1000.00,
+    0.00,
+    1000.00,
+    '2024-05-10 16:31:39',
+    'Success',
+    'Your payment of 1,000 RWF to Jane Smith 12845 has been completed'
+),
+
+(
+    '51732411227',
+    1,
+    600.00,
+    0.00,
+    400.00,
+    '2024-05-10 21:32:32',
+    'Success',
+    'Your payment of 600 RWF to Samuel Carter 95464 has been completed'
+),
+
+(
+    NULL,
+    3,
+    40000.00,
+    0.00,
+    40400.00,
+    '2024-05-11 18:43:49',
+    'Success',
+    'A bank deposit of 40000 RWF has been added to your mobile money account'
+),
+
+(
+    '13913173274',
+    5,
+    2000.00,
+    0.00,
+    25280.00,
+    '2024-05-12 11:41:28',
+    'Success',
+    'Your payment of 2000 RWF to Airtime with token has been completed'
+);
