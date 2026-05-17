@@ -118,3 +118,41 @@ CREATE TABLE System_Logs (
         CHECK (etl_stage IN ('Extract', 'Transform', 'Load', 'Export'))
 
 );
+
+/* 
+    Indexes for performance optimization
+*/
+
+CREATE INDEX idx_users_full_name
+   ON Users(full_name);
+
+CREATE INDEX idx_transactions_date
+   ON Transactions(transaction_date);
+
+CREATE INDEX idx_transaction_category
+    ON Transactions(category_id);
+
+CREATE INDEX idx_transactions_status
+    ON Transactions(status);
+
+CREATE INDEX idx_original_txid
+    ON Transactions(original_transaction_id);
+
+
+CREATE INDEX idx_party_transaction
+    ON Transaction_Parties(transaction_id);
+
+CREATE INDEX idx_party_user
+    ON Transaction_Parties(user_id);
+
+CREATE INDEX idx_party_role
+    ON Transaction_Parties(role);
+
+CREATE INDEX idx_logs_level
+    ON System_Logs(log_level);
+
+CREATE INDEX idx_logs_stage
+    ON System_Logs(etl_stage);
+
+CREATE INDEX idx_logs_date
+    ON System_Logs(log_date);
