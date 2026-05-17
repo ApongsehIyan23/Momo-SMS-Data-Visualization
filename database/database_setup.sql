@@ -13,3 +13,16 @@ CREATE TABLE Users (
       CHECK (user_type IN('Individual', 'Agent','Service','Business'))
         
 );
+ 
+ CREATE TABLE Transaction_Categories (
+
+    category_id INT PRIMARY KEY AUTO_INCREMENT
+        COMMENT 'Unique identifier for each transaction category',
+
+    category_name VARCHAR(50) NOT NULL UNIQUE
+        COMMENT 'Name of the category: Payment, Transfer, Bank Deposit, etc.',
+
+    description TEXT NULL
+        COMMENT 'Brief explanation of what this category represents'
+
+);
