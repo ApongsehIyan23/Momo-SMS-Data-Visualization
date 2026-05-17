@@ -1,3 +1,50 @@
-{
+{ 
+"users": [
+    {
+      "user_id": 1,
+      "full_name": "Jane Smith",
+      "user_type": "Individual"
+    },
+    {
+      "user_id": 2,
+      "full_name": "Samuel Carter",
+      "user_type": "Individual"
+    },
+    {
+      "user_id": 3,
+      "full_name": "Alex Doe",
+      "user_type": "Individual"
+    },
+    {
+      "user_id": 4,
+      "full_name": "Robert Brown",
+      "user_type": "Individual"
+    },
+    {
+      "user_id": 5,
+      "full_name": "Linda Green",
+      "user_type": "Individual"
+    },
+    {
+      "user_id": 6,
+      "full_name": "Abebe Chala CHEBUDIE",
+      "user_type": "Individual"
+    },
+    {
+      "user_id": 7,
+      "full_name": "Agent Sophia",
+      "user_type": "Agent"
+    },
+    {
+      "user_id": 8,
+      "full_name": "Airtime",
+      "user_type": "Service"
+    },
+    {
+      "user_id": 9,
+      "full_name": "DIRECT PAYMENT LTD",
+      "user_type": "Business"
+    }
+  ]
     
 }
