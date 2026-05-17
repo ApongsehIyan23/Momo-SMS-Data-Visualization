@@ -259,3 +259,57 @@ INSERT INTO Transactions (original_transaction_id,category_id,amount,fee,balance
     'Success',
     'Your payment of 2000 RWF to Airtime with token has been completed'
 );
+
+
+INSERT INTO Transaction_Parties (transaction_id, user_id, role) VALUES
+(
+    1,
+    1,
+    'Sender'
+),
+(
+    1,
+    6,
+    'Receiver'
+);
+
+
+INSERT INTO Transaction_Parties (transaction_id, user_id, role) VALUES
+(
+    2,
+    6,
+    'Sender'
+),
+(
+    2,
+    1,
+    'Receiver'
+);
+
+INSERT INTO Transaction_Parties (transaction_id, user_id, role) VALUES
+(
+    3,
+    6,
+    'Sender'
+),
+(
+    3,
+    2,
+    'Receiver'
+);
+
+
+INSERT INTO Transaction_Parties (transaction_id, user_id, role) VALUES
+(
+    4,
+    6,
+    'Receiver'
+);
+
+
+INSERT INTO Transaction_Parties (transaction_id, user_id, role) VALUES
+(
+    5,
+    6,
+    'Sender'
+);
