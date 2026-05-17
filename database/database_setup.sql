@@ -165,3 +165,41 @@ INSERT INTO Users (full_name, user_type) VALUES
 ('Linda Green', 'Individual'),
 ('MTN Mobile Money', 'Service'),
 ('Agent Sophia', 'Agent');
+
+
+
+INSERT INTO Transaction_Categories (category_name, description) VALUES
+(
+    'Payment',
+    'Merchant or person payment made using a MoMo pay code.'
+),
+(
+    'Transfer',
+    'Person-to-person money transfer to another MoMo user.'
+),
+(
+    'Bank Deposit',
+    'Money deposited from a bank account into the MoMo wallet.'
+    'Incoming Money',
+    'Money received from another MoMo user. Identified by "You have received" at the start of the SMS body.'
+),
+(
+    'Airtime/Bill Payment',
+    'Payment for airtime, data bundles, or utilities such as MTN Cash Power, WASAC, and Bundles and Packs.'
+),
+(
+    'Third-Party Service',
+    'Transaction initiated by a third-party company debiting the MoMo account.'
+),
+(
+    'Withdrawal',
+    'Cash withdrawal from MoMo account through a physical agent.'
+),
+(
+    'Bank Transfer',
+    'Money transferred from MoMo wallet to a bank account.'
+),
+(
+    'Reversal',
+    'A previously completed transaction that has been reversed and money returned.'
+);
