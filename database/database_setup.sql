@@ -156,3 +156,12 @@ CREATE INDEX idx_logs_stage
 
 CREATE INDEX idx_logs_date
     ON System_Logs(log_date);
+
+INSERT INTO Users (full_name, user_type) VALUES
+('Jane Smith', 'Individual'),
+('Samuel Carter', 'Individual'),
+('Alex Doe', 'Individual'),
+('Robert Brown', 'Individual'),
+('Linda Green', 'Individual'),
+('MTN Mobile Money', 'Service'),
+('Agent Sophia', 'Agent');
