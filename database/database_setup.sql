@@ -313,3 +313,47 @@ INSERT INTO Transaction_Parties (transaction_id, user_id, role) VALUES
     6,
     'Sender'
 );
+
+
+
+INSERT INTO System_Logs (log_level, etl_stage, message) VALUES
+(
+    'INFO',
+    'Extract',
+    'Pipeline started for modified_sms_v2.xml'
+),
+(
+    'INFO',
+    'Extract',
+    'Parsed 1691 SMS records from modified_sms_v2.xml'
+),
+(
+    'WARNING',
+    'Transform',
+    'Skipped OTP message: Dear Customer, your MTN MoMo application one-time password is...'
+),
+(
+    'WARNING',
+    'Transform',
+    'Skipped Yello! notification: Yello!Umaze kugura 2000Rwf(1GB)/30days igura 2,000 RWF'
+),
+(
+    'INFO',
+    'Transform',
+    'Categorized 1661 transactions: 662 payments, 585 transfers, 248 bank deposits, 63 incoming, 53 airtime, 36 third-party, 3 withdrawals, 6 bank transfers, 1 reversal'
+),
+(
+    'ERROR',
+    'Transform',
+    'Could not parse amount from SMS: 1) 2024-08-23 DEPOSIT RWF 25000 Receiver: 250795963036 Sender: Fee: RWF'
+),
+(
+    'INFO',
+    'Load',
+    'Inserted 1661 transactions into database'
+),
+(
+    'INFO',
+    'Export',
+    'dashboard.json exported successfully with summary statistics'
+);
