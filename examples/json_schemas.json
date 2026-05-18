@@ -55,5 +55,30 @@
       "category_name": "Bank Transfer",
       "description": "Money transferred from MoMo wallet to a bank account. "
     }
+  ],
+
+  "transactions": [
+    {
+      "transaction_id": 1,
+      "original_transaction_id": "76662021700",
+      "category_id": 4,
+      "amount": 2000.00,
+      "fee": 0.00,
+      "balance_after": 2000.00,
+      "transaction_date": "2024-05-10T16:30:51",
+      "status": "Success",
+      "raw_sms": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Your new balance:2000 RWF. Financial Transaction Id: 76662021700."
+    },
+    {
+      "transaction_id": 5,
+      "original_transaction_id": "13913173274",
+      "category_id": 5,
+      "amount": 2000.00,
+      "fee": 0.00,
+      "balance_after": 25280.00,
+      "transaction_date": "2024-05-12T11:41:28",
+      "status": "Success",
+      "raw_sms": "*162*TxId:13913173274*S*Your payment of 2000 RWF to Airtime with token has been completed at 2024-05-12 11:41:28. Fee was 0 RWF."
+    }
   ]
 }
