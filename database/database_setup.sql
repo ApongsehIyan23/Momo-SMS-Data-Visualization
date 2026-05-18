@@ -7,7 +7,7 @@ CREATE TABLE Users (
          COMMENT 'Full name of the user as exctracted from SMS',
     
     user_type VARCHAR(20) NOT NULL
-         COMMENT 'Type of user:Individual, Agent, Service or Business'
+         COMMENT 'Type of user:Individual, Agent, Service or Business',
 
   CONSTRAINT chck_user_type
       CHECK (user_type IN('Individual', 'Agent','Service','Business'))
