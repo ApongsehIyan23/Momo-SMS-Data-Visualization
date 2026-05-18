@@ -124,5 +124,43 @@
       "etl_stage": "Transform",
       "message": "Could not parse amount from SMS: 1) 2024-08-23 DEPOSIT RWF 25000 Receiver: 250795963036 Sender: Fee: RWF"
     }
-  ]
+  ],
+
+
+  "complete_transaction": {
+    "transaction_id": 1,
+    "original_transaction_id": "76662021700",
+    "category_id": 4,
+    "amount": 2000.00,
+    "fee": 0.00,
+    "balance_after": 2000.00,
+    "transaction_date": "2024-05-10T16:30:51",
+    "status": "Success",
+    "raw_sms": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Your new balance:2000 RWF. Financial Transaction Id: 76662021700.",
+    "category": {
+      "category_id": 4,
+      "category_name": "Incoming Money",
+      "description": "Money received from another MoMo user."
+    },
+    "parties": [
+      {
+        "party_id": 1,
+        "role": "Sender",
+        "user": {
+          "user_id": 1,
+          "full_name": "Jane Smith",
+          "user_type": "Individual"
+        }
+      },
+      {
+        "party_id": 2,
+        "role": "Receiver",
+        "user": {
+          "user_id": 6,
+          "full_name": "Abebe Chala CHEBUDIE",
+          "user_type": "Individual"
+        }
+      }
+    ]
+  }
 }
