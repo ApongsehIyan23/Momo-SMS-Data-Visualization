@@ -80,5 +80,32 @@
       "status": "Success",
       "raw_sms": "*162*TxId:13913173274*S*Your payment of 2000 RWF to Airtime with token has been completed at 2024-05-12 11:41:28. Fee was 0 RWF."
     }
+  ],
+
+  "transaction_parties": [
+    {
+      "party_id": 1,
+      "transaction_id": 1,
+      "user_id": 1,
+      "role": "Sender"
+    },
+    {
+      "party_id": 2,
+      "transaction_id": 1,
+      "user_id": 6,
+      "role": "Receiver"
+    },
+    {
+      "party_id": 8,
+      "transaction_id": 5,
+      "user_id": 6,
+      "role": "Sender"
+    },
+    {
+      "party_id": 9,
+      "transaction_id": 5,
+      "user_id": 8,
+      "role": "Receiver"
+    }
   ]
 }
