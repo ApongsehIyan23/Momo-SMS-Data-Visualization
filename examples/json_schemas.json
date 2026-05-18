@@ -107,5 +107,22 @@
       "user_id": 8,
       "role": "Receiver"
     }
+  ],
+
+  "system_logs": [
+    {
+      "log_id": 4,
+      "log_date": "2025-05-17T10:00:05",
+      "log_level": "WARNING",
+      "etl_stage": "Transform",
+      "message": "Skipped Yello! notification: Yello!Umaze kugura 2000Rwf(1GB)/30days igura 2,000 RWF"
+    },
+    {
+      "log_id": 5,
+      "log_date": "2025-05-17T10:00:08",
+      "log_level": "ERROR",
+      "etl_stage": "Transform",
+      "message": "Could not parse amount from SMS: 1) 2024-08-23 DEPOSIT RWF 25000 Receiver: 250795963036 Sender: Fee: RWF"
+    }
   ]
 }
