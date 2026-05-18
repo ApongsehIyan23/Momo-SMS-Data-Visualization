@@ -156,7 +156,7 @@ CREATE TABLE  System_Logs (
 
 );
 
-
+-- indexex of all the tables 
 
 CREATE INDEX idx_users_full_name
     ON Users(full_name);
@@ -479,8 +479,7 @@ JOIN Transaction_Categories tc
 GROUP BY tc.category_id, tc.category_name
 ORDER BY total_amount_rwf DESC;
 
-
--- CRUD OPERATIONS
+--CRUD OPS
 -- CREATE: Insert a new test user
 
 INSERT INTO Users (full_name, user_type) VALUES
@@ -529,7 +528,7 @@ FROM Transactions
 WHERE amount > 5000
 ORDER BY amount DESC;
 
--- READ 5: Full details via view
+
 SELECT * FROM vw_transaction_details
 ORDER BY transaction_date ASC;
 
@@ -569,7 +568,7 @@ UPDATE Transactions
 SET status = 'Success'
 WHERE original_transaction_id = '82113964658';
 
--- UPDATE 2: Add phone number to user
+--change type of the user
 UPDATE Users
 SET user_type = 'Agent'
 WHERE full_name = 'Emily Johnson';
