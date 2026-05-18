@@ -7,7 +7,7 @@ CREATE TABLE Users (
          COMMENT 'Full name of the user as exctracted from SMS',
     
     user_type VARCHAR(20) NOT NULL
-         COMMENT 'Type of user:Individual, Agent, Service or Business',
+         COMMENT 'Type of user:Individual, Agent, Service or Business'
 
   CONSTRAINT chck_user_type
       CHECK (user_type IN('Individual', 'Agent','Service','Business'))
@@ -180,8 +180,6 @@ INSERT INTO Transaction_Categories (category_name, description) VALUES
 (
     'Bank Deposit',
     'Money deposited from a bank account into the MoMo wallet.'
-),
-(
     'Incoming Money',
     'Money received from another MoMo user. Identified by "You have received" at the start of the SMS body.'
 ),

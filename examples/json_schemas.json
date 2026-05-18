@@ -13,26 +13,6 @@
       "user_type": "Individual"
     },
     {
-      "user_id": 3,
-      "full_name": "Alex Doe",
-      "user_type": "Individual"
-    },
-    {
-      "user_id": 4,
-      "full_name": "Robert Brown",
-      "user_type": "Individual"
-    },
-    {
-      "user_id": 5,
-      "full_name": "Linda Green",
-      "user_type": "Individual"
-    },
-    {
-      "user_id": 6,
-      "full_name": "Abebe Chala CHEBUDIE",
-      "user_type": "Individual"
-    },
-    {
       "user_id": 7,
       "full_name": "Agent Sophia",
       "user_type": "Agent"
@@ -51,19 +31,9 @@
 
   "transaction_categories": [
     {
-      "category_id": 1,
-      "category_name": "Payment",
-      "description": "Merchant or person payment made using a MoMo pay code."
-    },
-    {
       "category_id": 2,
       "category_name": "Transfer",
       "description": "Person-to-person money transfer to another MoMo user. "
-    },
-    {
-      "category_id": 3,
-      "category_name": "Bank Deposit",
-      "description": "Money deposited from a bank account into the MoMo wallet. "
     },
     {
       "category_id": 4,
@@ -76,11 +46,6 @@
       "description": "Payment for airtime, data bundles, or utilities such as MTN Cash Power, WASAC, and Bundles and Packs. "
     },
     {
-      "category_id": 6,
-      "category_name": "Third-Party Service",
-      "description": "Transaction initiated by a third-party company debiting the MoMo account. "
-    },
-    {
       "category_id": 7,
       "category_name": "Withdrawal",
       "description": "Cash withdrawal from MoMo account through a physical agent. "
@@ -89,11 +54,6 @@
       "category_id": 8,
       "category_name": "Bank Transfer",
       "description": "Money transferred from MoMo wallet to a bank account. "
-    },
-    {
-      "category_id": 9,
-      "category_name": "Reversal",
-      "description": "A previously completed transaction that has been reversed and money returned. "
     }
   ]
 }
