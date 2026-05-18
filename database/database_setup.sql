@@ -180,6 +180,8 @@ INSERT INTO Transaction_Categories (category_name, description) VALUES
 (
     'Bank Deposit',
     'Money deposited from a bank account into the MoMo wallet.'
+),
+(
     'Incoming Money',
     'Money received from another MoMo user. Identified by "You have received" at the start of the SMS body.'
 ),
