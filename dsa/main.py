@@ -31,7 +31,7 @@ from dsa import (
 
 
 # Parse the XML file
-tree = ET.parse('modified_sms_v2.xml')
+tree = ET.parse('data/raw/modified_sms_v2.xml')
 root = tree.getroot()
 
 # list to store the raw sms messages
