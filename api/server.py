@@ -116,4 +116,23 @@ class Momoapi(BaseHTTPRequestHandler):
             self.end_headers()
             response = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(response).encode())
+    
+    def do_PUT(self):
 
+        if not self.verify_user():
+            self.deny_access()
+            return
+
+        if self.path.startswith('/transactions/'): 
+            transaction_id = int(self.path.split('/')[2])
+            transaction = transactions_dict.get(transaction_id)
+
+            if not transaction:
+                self.send_response(404)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                response = {"error": "Transaction not found"}
+                self.wfile.write(json.dumps(response).encode())
+                return
+
+           
