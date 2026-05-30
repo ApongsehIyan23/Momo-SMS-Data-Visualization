@@ -163,6 +163,15 @@ class Momoapi(BaseHTTPRequestHandler):
 
             if not transaction:
                 self.send_response(404)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                response = {"error": "Transaction not found"}
+                self.wfile.write(json.dumps(response).encode())
+                return
+
+            transactions_dict.pop(transaction_id)
+            transactions_list.remove(transaction)
+
 
 
 
