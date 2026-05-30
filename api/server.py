@@ -117,13 +117,14 @@ class Momoapi(BaseHTTPRequestHandler):
             response = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(response).encode())
     
+    
     def do_PUT(self):
 
         if not self.verify_user():
             self.deny_access()
             return
 
-        if self.path.startswith('/transactions/'): 
+        if self.path.startswith('/transactions/'):
             transaction_id = int(self.path.split('/')[2])
             transaction = transactions_dict.get(transaction_id)
 
@@ -134,11 +135,13 @@ class Momoapi(BaseHTTPRequestHandler):
                 response = {"error": "Transaction not found"}
                 self.wfile.write(json.dumps(response).encode())
                 return
-                content_length = int(self.headers.get('Content-Length', 0))
+
+            content_length = int(self.headers.get('Content-Length', 0))
             body = self.rfile.read(content_length)
             updates = json.loads(body.decode('utf-8'))
 
             transaction.update(updates)
+
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
@@ -150,8 +153,9 @@ class Momoapi(BaseHTTPRequestHandler):
             self.end_headers()
             response = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(response).encode())
+
+
     def do_DELETE(self):
-       
 
         if not self.verify_user():
             self.deny_access()
@@ -171,6 +175,7 @@ class Momoapi(BaseHTTPRequestHandler):
 
             transactions_dict.pop(transaction_id)
             transactions_list.remove(transaction)
+
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
@@ -183,6 +188,13 @@ class Momoapi(BaseHTTPRequestHandler):
             self.end_headers()
             response = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(response).encode())
+
+
+if __name__ == '__main__':
+    server = HTTPServer(('localhost', 8080), Momoapi)
+    print('MoMo SMS API running on http://localhost:8080')
+    print('Press CTRL+C to stop the server')
+    server.serve_forever()
 
 
 
