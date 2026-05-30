@@ -3,7 +3,7 @@ import json
 import base64
 import os
 
-json_path = os.path.join(os.path.dirname(__file__), '..', 'dsa', 'transactions.json')
+json_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'processed', 'transactions.json')
 
 with open(json_path, 'r') as f:
     transactions_list = json.load(f)
