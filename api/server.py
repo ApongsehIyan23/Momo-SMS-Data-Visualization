@@ -134,5 +134,11 @@ class Momoapi(BaseHTTPRequestHandler):
                 response = {"error": "Transaction not found"}
                 self.wfile.write(json.dumps(response).encode())
                 return
+                content_length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(content_length)
+            updates = json.loads(body.decode('utf-8'))
+
+            transaction.update(updates)
+
 
            
