@@ -139,6 +139,18 @@ class Momoapi(BaseHTTPRequestHandler):
             updates = json.loads(body.decode('utf-8'))
 
             transaction.update(updates)
+                self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(transaction).encode())
+
+        else:
+            self.send_response(404)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            response = {"error": "Endpoint not found"}
+            self.wfile.write(json.dumps(response).encode())
+
 
 
            
