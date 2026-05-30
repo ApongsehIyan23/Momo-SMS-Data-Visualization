@@ -14,8 +14,7 @@ a valid username and password encoded in base64.
 **How to include credentials:**
 curl -u admin:MomoSms26 http://localhost:8080/transactions
 
-Henriette Iraguha
-16:29
+
 **What happens without credentials:**
 ```json
 {
@@ -180,11 +179,11 @@ curl -u admin:MomoSms26 \
 
 **Response Example (400 Bad Request — Missing Field):**
 ```json
-{
-  "error": "Missing required field: amoun
 
-Henriette Iraguha
-16:31
+{
+  "error": "Missing required field: amount
+}
+
 **Response Example (400 Bad Request — Duplicate ID):**
 ```json
 {

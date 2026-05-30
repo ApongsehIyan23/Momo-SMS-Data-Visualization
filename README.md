@@ -68,6 +68,62 @@ The full ERD diagram is available in the repository at `docs/erd_diagram.png`.
 - JSON schema examples: `examples/json_schemas.json`
 - Full design document: `docs/Database_Design_Document.pdf`
 
+## REST API
+
+### Overview
+A REST API built in plain Python using http.server that exposes MoMo SMS transaction data through five secured endpoints. All endpoints are protected with Basic Authentication.
+
+### API Files
+- API server: `api/server.py`
+- API documentation: `docs/api_docs.md`
+- Full API report: `docs/Week3_Report.pdf`
+
+### Running the API
+
+**Step 1 — Parse the XML file and generate transaction data:**
+```bash
+python dsa/main.py
+```
+This reads `data/raw/modified_sms_v2.xml` and saves the parsed 
+transactions to `data/processed/transactions.json`.
+
+**Step 2 — Start the API server:**
+```bash
+python api/server.py
+```
+The API will be running at `http://localhost:8080`
+
+**Step 3 — Test the API using curl:**
+```bash
+curl -u admin:MomoSms26 http://localhost:8080/transactions
+```
+
+### Authentication
+All endpoints require Basic Authentication.
+Username: admin
+Password: MomoSms26
+
+### Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | /transactions | Returns all transactions |
+| GET | /transactions/{id} | Returns one transaction by ID |
+| POST | /transactions | Adds a new transaction |
+| PUT | /transactions/{id} | Updates an existing transaction |
+| DELETE | /transactions/{id} | Deletes a transaction |
+
+### DSA Integration
+Two search algorithms were implemented and compared in `dsa/search_comparison.py`:
+
+- **Linear Search O(n)** — scans through transactions one by one
+- **Dictionary Lookup O(1)** — jumps directly to transaction by ID
+
+Dictionary lookup was consistently faster especially for large datasets. Full comparison results are available in `docs/Week3_Report.pdf`.
+
+---
+
+## Project Structure
 ## Project Structure
 ```
 .
@@ -77,24 +133,47 @@ The full ERD diagram is available in the repository at `docs/erd_diagram.png`.
 ├── index.html
 ├── docs/
 │   ├── erd_diagram.png
-│   └── Database_Design_Document.pdf
+|   ├── AI_usage_log.md
+│   ├── api_docs.md
+│   ├── Database_Design_Document.pdf
+│   └── Week3_Report.pdf
 ├── database/
 │   └── database_setup.sql
 ├── examples/
 │   └── json_schemas.json
+├── api/
+│   └── server.py
+├── dsa/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── base_transaction.py
+│   ├── payment.py
+│   ├── transfer.py
+│   ├── bank_deposit.py
+│   ├── incoming_money.py
+│   ├── airtime_bill.py
+│   ├── third_party.py
+│   ├── withdrawal.py
+│   ├── bank_transfer.py
+│   ├── reversal.py
+│   └── search_comparison.py
+├── screenshots/
+│   ├── 01_get_all_transactions.png
+│   ├── 02_unauthorized_401.png
+│   ├── 03_get_one_transaction.png
+│   ├── 04_post_new_transaction.png
+│   ├── 05_put_update_transaction.png
+│   └── 06_delete_transaction.png
+├── data/
+│   ├── raw/
+│   │   └── modified_sms_v2.xml
+│   └── processed/
+│       ├── dashboard.json
+│       └── transactions.json
 ├── web/
 │   ├── styles.css
 │   ├── chart_handler.js
 │   └── assets/
-├── data/
-│   ├── raw/
-│   │   └── momo.xml
-│   ├── processed/
-│   │   └── dashboard.json
-│   ├── db.sqlite3
-│   └── logs/
-│       ├── etl.log
-│       └── dead_letter/
 ├── etl/
 │   ├── __init__.py
 │   ├── config.py
@@ -103,11 +182,6 @@ The full ERD diagram is available in the repository at `docs/erd_diagram.png`.
 │   ├── categorize.py
 │   ├── load_db.py
 │   └── run.py
-├── api/
-│   ├── __init__.py
-│   ├── app.py
-│   ├── db.py
-│   └── schemas.py
 ├── scripts/
 │   ├── run_etl.sh
 │   ├── export_json.sh
@@ -117,6 +191,7 @@ The full ERD diagram is available in the repository at `docs/erd_diagram.png`.
     ├── test_clean_normalize.py
     └── test_categorize.py
 ```
+
 
 ## Getting Started
 

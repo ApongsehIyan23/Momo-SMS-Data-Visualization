@@ -11,7 +11,7 @@ import json
 
 
 # Load the transactions from the json file we generated
-with open('transactions.json', 'r') as f:
+with open('data/processed/transactions.json', 'r') as f:
     transactions_list = json.load(f)
 
 print(f"Total transactions loaded: {len(transactions_list)}")
