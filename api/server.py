@@ -71,3 +71,49 @@ class Momoapi(BaseHTTPRequestHandler):
             self.end_headers()
             response = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(response).encode())
+    
+    def do_POST(self):
+
+        if not self.verify_user():
+            self.deny_access()
+            return
+
+        if self.path == '/transactions':
+            content_length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(content_length)
+
+            new_transaction = json.loads(body.decode('utf-8'))
+
+            required_fields = ['transaction_id', 'category', 'amount', 'sender', 'receiver', 'transaction_date']
+            for field in required_fields:
+                if field not in new_transaction:
+                    self.send_response(400)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    response = {"error": f"Missing required field: {field}"}
+                    self.wfile.write(json.dumps(response).encode())
+                    return
+
+            if new_transaction['transaction_id'] in transactions_dict:
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json')
+                self.end_headers()
+                response = {"error": "Transaction ID already exists"}
+                self.wfile.write(json.dumps(response).encode())
+                return
+
+            transactions_list.append(new_transaction)
+            transactions_dict[new_transaction['transaction_id']] = new_transaction
+
+            self.send_response(201)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(new_transaction).encode())
+
+        else:
+            self.send_response(404)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            response = {"error": "Endpoint not found"}
+            self.wfile.write(json.dumps(response).encode())
+
