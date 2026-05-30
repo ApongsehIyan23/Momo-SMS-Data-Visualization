@@ -139,7 +139,7 @@ class Momoapi(BaseHTTPRequestHandler):
             updates = json.loads(body.decode('utf-8'))
 
             transaction.update(updates)
-                self.send_response(200)
+            self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps(transaction).encode())
@@ -150,6 +150,20 @@ class Momoapi(BaseHTTPRequestHandler):
             self.end_headers()
             response = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(response).encode())
+    def do_DELETE(self):
+       
+
+        if not self.verify_user():
+            self.deny_access()
+            return
+
+        if self.path.startswith('/transactions/'):
+            transaction_id = int(self.path.split('/')[2])
+            transaction = transactions_dict.get(transaction_id)
+
+            if not transaction:
+                self.send_response(404)
+
 
 
 
